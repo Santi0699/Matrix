@@ -111,3 +111,23 @@ void matrix_change_row_with_vector(Matrix* m, vector* v,int row_change)
     }
 
 }
+
+void matrix_change_col_with_vector(Matrix* m, vector* v,int col_change)
+{
+
+    if(m==NULL && v==NULL) return;
+
+    int size = vector_size(v);
+    int row=matrix_rows(m);
+    int col=matrix_columns(m);
+
+    if(size==col)
+    {
+        for(int i=0; i<row; i++)
+        {
+            t_elem_vector value=vector_get(v,i);
+            matrix_set(m,i,col_change,(t_elem_matrix)value);
+        }
+    }
+
+}

@@ -18,11 +18,13 @@ int main()
 
     puts("Asi se ve pepe:");
     vector_print2(pepe);
-    
-    matrix_change_row_with_vector(matriz1,pepe,1);
+
+//    matrix_change_row_with_vector(matriz1,pepe,1);
+    matrix_change_col_with_vector(matriz1,pepe,0);
 
     puts("Asi quedo la nueva matriz intercambiando pepe");
     matrix_print(matriz1, print_int);
+
 
     free_matrix(matriz1);
     
