@@ -18,6 +18,7 @@ void matrix_add_random(Matrix* m);
 void print_int(t_elem_matrix x);
 void matrix_change_row_with_vector(Matrix* m, vector* v,int row_change);
 void matrix_change_col_with_vector(Matrix* m, vector* v,int col_change);
-
+Matrix* matrix_sum(Matrix* m1, Matrix* m2);
+Matrix* matrix_sum_vector(Matrix* m1, vector* v);
 
 #endif

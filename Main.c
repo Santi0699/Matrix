@@ -25,6 +25,28 @@ int main()
     puts("Asi quedo la nueva matriz intercambiando pepe");
     matrix_print(matriz1, print_int);
 
+    Matrix* matriz2=matrix_new(3,3);
+    matrix_add_random(matriz2);
+    puts("Matriz2:");
+    matrix_print(matriz2, print_int);
+
+    Matrix* pepito=matrix_sum(matriz1,matriz2);
+    puts("Asi queda pepito:");
+    matrix_print(pepito,print_int);
+
+
+    vector* vectorsin=vector_init(3);
+    vector_add_random2(vectorsin);
+    puts("Asi queda vectorsin:");
+    vector_print2(vectorsin);
+
+    puts("Matriz1 se suma con vectorsin");
+    matrix_print(matriz1,print_int);
+
+    Matrix* pepinero=matrix_sum_vector(matriz1,vectorsin);
+    puts("Asi queda pepinero:");
+    matrix_print(pepinero,print_int);
+
 
     free_matrix(matriz1);
     
