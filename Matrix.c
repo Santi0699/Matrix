@@ -1,6 +1,6 @@
 #include "Matrix.h"
 #include "vector.h"
-
+//16
 typedef struct _Matrix
 {
     t_elem_matrix** a;
@@ -70,7 +70,7 @@ void matrix_print(Matrix* m, void (*print)(t_elem_matrix))
     printf("\n");
 
 }
-
+//17
 void matrix_add_random(Matrix* m)
 {
     int row=matrix_rows(m);
@@ -91,7 +91,7 @@ void print_int(t_elem_matrix x) {
     printf("|%d| ", x);
 }
 
-
+//18
 void matrix_change_row_with_vector(Matrix* m, vector* v,int row_change)
 {
 
@@ -111,7 +111,7 @@ void matrix_change_row_with_vector(Matrix* m, vector* v,int row_change)
     }
 
 }
-
+//19
 void matrix_change_col_with_vector(Matrix* m, vector* v,int col_change)
 {
 
@@ -131,53 +131,4 @@ void matrix_change_col_with_vector(Matrix* m, vector* v,int col_change)
     }
 
 }
-//21)
-
- Matrix* matrix_sum(Matrix* m1, Matrix* m2)
-{
-    int row1=matrix_rows(m1);
-    int col1=matrix_columns(m1);
-    int row2=matrix_rows(m2);
-    int col2=matrix_columns(m2);
-    Matrix* result=matrix_new(row1,col1);
-    if(row1==row2 && col1==col2)
-    {
-        for(int i=0; i<row1; i++)
-        {
-            for(int j=0; j<col1; j++)
-            {
-                t_elem_matrix value1=matrix_get(m1,i,j);
-                t_elem_matrix value2=matrix_get(m2,i,j);
-                t_elem_matrix value=value1+value2;
-                matrix_set(result,i,j,value);
-            }
-        }
-    }
-
-    return result;
-
-}
-
-Matrix* matrix_sum_vector(Matrix* m1, vector* v)
-{
-    int row1=matrix_rows(m1);
-    int col1=matrix_columns(m1);
-    int size=vector_size(v);
-    Matrix* result=matrix_new(row1,col1);
-    if(col1==size)
-    {
-        for(int i=0; i<row1; i++)
-        {
-            for(int j=0; j<col1; j++)
-            {
-                t_elem_matrix value1=matrix_get(m1,i,j);
-                t_elem_matrix value2=(t_elem_matrix)vector_get(v,j);
-                t_elem_matrix value=value1+value2;
-                matrix_set(result,i,j,value);
-            }
-        }
-    }
-
-    return result;
-
-}
+//21
