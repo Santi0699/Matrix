@@ -180,3 +180,39 @@ Matrix* matrix_sum_vector(Matrix* m1, vector* v)
     return result;
 
 }
+
+Matrix* matrix_mult(Matrix* m1, Matrix* m2)
+{
+    int row1=matrix_rows(m1);
+    int col1=matrix_columns(m1);
+    int row2=matrix_rows(m2);
+    int col2=matrix_columns(m2);
+    
+    if(col1 != row2)
+    {
+        return NULL;
+    }
+    
+    Matrix* result=matrix_new(row1,col2);
+
+    for (int i=0; i<row1;i++)
+    {   
+        t_elem_matrix value = 0;
+        for (int j = 0; j < col2; j++)
+        {
+            for(int k=0; k<col1;k++)
+            {
+                t_elem_matrix v1=matrix_get(m1,i,k);
+                t_elem_matrix v2=matrix_get(m2,k,i);
+                value= value+ v1*v2;
+
+            }
+            matrix_set(result,i,j,value);
+        }
+
+    }
+
+    return result;
+
+
+}

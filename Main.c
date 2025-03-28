@@ -47,6 +47,20 @@ int main()
     puts("Asi queda pepinero:");
     matrix_print(pepinero,print_int);
 
+    Matrix* matriz3=matrix_new(2,3);
+    matrix_add_random(matriz3);
+    puts("Matriz3 queda asi:");
+    matrix_print(matriz3, print_int);
+    Matrix* matriz4=matrix_new(3,2);
+    matrix_add_random(matriz4);
+    puts("Matriz4 queda asi:");
+    matrix_print(matriz4, print_int);
+    
+
+    Matrix* papon=matrix_mult(matriz3,matriz4);
+    puts("Asi queda papon:");
+    matrix_print(papon,print_int);
+
 
     free_matrix(matriz1);
     
