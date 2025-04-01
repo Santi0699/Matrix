@@ -216,3 +216,40 @@ Matrix* matrix_mult(Matrix* m1, Matrix* m2)
 
 
 }
+
+t_elem_matrix matrix_determinant_recursive(Matrix* m) {
+    if (matrix_rows(m) != matrix_columns(m)) {
+        puts("Error: La matriz no es cuadrada");
+        return 0;
+    }
+
+    int n = matrix_rows(m);
+    if (n == 1) return matrix_get(m, 0, 0); // Caso base: 1x1
+    if (n == 2) {
+        return matrix_get(m, 0, 0) * matrix_get(m, 1, 1) - 
+               matrix_get(m, 0, 1) * matrix_get(m, 1, 0); // Caso base: 2x2
+    }
+
+    t_elem_matrix det = 0;
+    for (int j = 0; j < n; j++) {
+        // Crear menor eliminando la fila 0 y columna j
+        Matrix* minor = matrix_new(n - 1, n - 1);
+        
+        for (int i = 1; i < n; i++) { // Desde la fila 1 (omitir fila 0)
+            int minor_col = 0;
+            for (int k = 0; k < n; k++) {
+                if (k == j) continue; // Omitir la columna j
+                matrix_set(minor, i - 1, minor_col, matrix_get(m, i, k));
+                minor_col++;
+            }
+        }
+
+        // Expansión de cofactores
+        t_elem_matrix cofactor = (j % 2 == 0 ? 1 : -1) * matrix_get(m, 0, j) * matrix_determinant_recursive(minor);
+        det += cofactor;
+
+        free_matrix(minor); // Liberar memoria del menor
+    }
+
+    return det;
+}

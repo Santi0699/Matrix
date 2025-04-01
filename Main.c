@@ -62,6 +62,13 @@ int main()
     matrix_print(papon,print_int);
 
 
+    Matrix* Determinante= matrix_new(4,4);
+    matrix_add_random(Determinante);
+    matrix_print(Determinante,print_int);
+    int valorsin=matrix_determinant_recursive(Determinante);
+    print_int(valorsin);
+    
+
     free_matrix(matriz1);
     
     return 0;

@@ -21,5 +21,6 @@ void matrix_change_col_with_vector(Matrix* m, vector* v,int col_change);
 Matrix* matrix_sum(Matrix* m1, Matrix* m2);
 Matrix* matrix_sum_vector(Matrix* m1, vector* v);
 Matrix* matrix_mult(Matrix* m1, Matrix* m2);
+t_elem_matrix matrix_determinant_recursive(Matrix* m);
 
 #endif
