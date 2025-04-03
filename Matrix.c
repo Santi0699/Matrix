@@ -217,7 +217,7 @@ Matrix* matrix_mult(Matrix* m1, Matrix* m2)
 
 }
 
-<<<<<<< HEAD
+
 Matrix* matrix_det(Matrix* m)
 {
     int row1=matrix_rows(m);
@@ -228,7 +228,7 @@ Matrix* matrix_det(Matrix* m)
     
 
 }
-=======
+
 t_elem_matrix matrix_determinant_recursive(Matrix* m) {
     if (matrix_rows(m) != matrix_columns(m)) {
         puts("Error: La matriz no es cuadrada");
