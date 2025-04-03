@@ -216,3 +216,14 @@ Matrix* matrix_mult(Matrix* m1, Matrix* m2)
 
 
 }
+
+Matrix* matrix_det(Matrix* m)
+{
+    int row1=matrix_rows(m);
+    int col1=matrix_columns(m);
+
+    Matrix* result=matrix_new(row1,col1);
+
+    
+
+}
